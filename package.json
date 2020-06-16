@@ -1,0 +1,19 @@
+{
+  "name": "ts-hooks-saga",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavelkoshkin92/ts-hooks-saga.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pavelkoshkin92/ts-hooks-saga/issues"
+  },
+  "homepage": "https://github.com/pavelkoshkin92/ts-hooks-saga#readme"
+}
