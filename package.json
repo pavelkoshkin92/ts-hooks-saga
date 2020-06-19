@@ -21,10 +21,14 @@
   },
   "homepage": "https://github.com/pavelkoshkin92/ts-hooks-saga#readme",
   "dependencies": {
+    "@types/react-redux": "^7.1.9",
+    "@types/react-router-dom": "^5.1.5",
+    "axios": "^0.19.2",
     "formik": "^2.1.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
     "redux-saga": "^1.1.3",
     "styled-components": "^5.1.1"
