@@ -1,0 +1,45 @@
+.title {
+  margin-bottom: 25px;
+  font-family: 'Arvo', serif;
+  font-size: 75px;
+  color: whitesmoke;
+  text-transform: uppercase;
+  @media (max-width: 450px) {
+    font-size: 45px;
+  }
+}
+
+.bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+  background-size: 400% 400%;
+  position: relative;
+  animation: change 10s ease-in-out infinite;
+}
+
+.link {
+  margin: 10px;
+  text-decoration: none;
+  font-family: 'Arvo', serif;
+  font-size: 28px;
+  color: whitesmoke;
+
+}
+
+@keyframes change {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
