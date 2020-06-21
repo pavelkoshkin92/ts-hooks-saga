@@ -10,6 +10,7 @@ import {
 import { ActionPayloadOptional } from "../../../../constants/types";
 
 const initialState: SessionState = {
+    isAuthenticated: false,
     username: null,
     userId: null,
     done: true
@@ -21,7 +22,8 @@ export const authReducer = (
 ): SessionState => {
     switch (action.type) {
         case AUTH_LOGIN_START: return {...state, done: false};
-        case AUTH_LOGIN_SUCCESS: return {...state, ...action.payload, done: true};
+        case AUTH_LOGIN_SUCCESS: return {...state, ...action.payload, done: true, isAuthenticated: true};
+        case AUTH_LOGIN_ERROR: return {...state, done: true};
         case AUTH_LOGOUT: return {...state, ...initialState};
         default: return state;
     }

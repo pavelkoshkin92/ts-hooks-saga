@@ -10,8 +10,10 @@ interface ErrorResponse {
 }
 
 export const signIn = (login: string, password: string): Promise<SignUpApiResponse | ErrorResponse> => {
-    return Promise.resolve({
-        username: login,
-        userId: Math.random() * 100
+    return new Promise((res, rej) => {
+        setTimeout(() => res({
+            username: login,
+            userId: Math.floor(Math.random() * 100)
+        }), 1500)
     })
 }

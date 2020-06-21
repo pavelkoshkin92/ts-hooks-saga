@@ -12,7 +12,7 @@ const Input: FC<Props> = ({
                               onFocus,
                               onBlur}) => (
     <div className={styles.inputField}>
-        <label className={styles.label} htmlFor={label}>{label}</label>
+        <label className={styles.label} htmlFor={name}>{label}</label>
         <input
             className={styles.input}
             type={type}

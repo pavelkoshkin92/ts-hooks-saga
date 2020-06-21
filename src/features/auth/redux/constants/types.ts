@@ -15,6 +15,7 @@ export interface LoginPayload {
 }
 
 export interface SessionState {
+    isAuthenticated: boolean,
     username: string | null,
     userId: string | null,
     done: boolean

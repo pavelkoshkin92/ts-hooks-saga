@@ -1,12 +1,3 @@
-import React from "react";
-
-export interface Props {
-
-}
-
-// export type HandleSubmit = (event: React.FormEvent<HTMLFormElement>) => void;
-export type HandleSubmit = (values: {username: string, password: string}) => void;
-
 export type ValidationErrors =  {
     email?: string,
     password?: string

@@ -1,12 +1,17 @@
 import React, { FC, useState } from 'react';
 import { useFormik } from 'formik';
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { Props, HandleSubmit, ValidateEmailPassword, ValidationErrors, ShowError } from "./types";
-import styles from './Auth.scss'
+import styles from './Auth.scss';
+
+import { ValidateEmailPassword, ValidationErrors, ShowError } from "./types";
+import { SessionState } from "./redux/constants/types";
+
+import { loginUser } from "./redux/actions";
 
 import Form from "../../common/Form/Form";
 import Input from "../../common/Input/Input";
+import Spinner from "../../common/Spinner/Spinner";
 
 const validate: ValidateEmailPassword = values => {
     const errors: ValidationErrors = {};
@@ -18,7 +23,6 @@ const validate: ValidateEmailPassword = values => {
     if (values.password.trim().length < 4) {
         errors.password = 'The password cannot have less than 4 symbols';
     }
-    console.log(errors)
     return errors;
 }
 
@@ -31,14 +35,13 @@ const showError: ShowError = (type, formik, focused) => {
     return '';
 };
 
-const Auth: FC<Props> = (props) => {
-    const handleSubmit: HandleSubmit = password => {
-        // event.preventDefault();
-    }
+const Auth: FC = () => {
+    const dispatch = useDispatch();
+    const { done, isAuthenticated } = useSelector((state: {auth: SessionState}) => state.auth);
+    console.log(done)
 
     const [emailFocused, setEmailFocused] = useState(false);
     const [passwordFocused, setPasswordFocused] = useState(false);
-
 
     const formik = useFormik({
         initialValues: {
@@ -48,7 +51,7 @@ const Auth: FC<Props> = (props) => {
         validate,
         onSubmit: values => {
             if (!formik.errors.email && !formik.errors.password) {
-                handleSubmit({username: values.email, password: values.password});
+                dispatch(loginUser(values.email, values.password));
             }
         }
     });
@@ -56,6 +59,7 @@ const Auth: FC<Props> = (props) => {
 
     return (
         <div className={styles.bg}>
+            { !done && <Spinner /> }
             <h1 className={styles.title}>covid19 app</h1>
             <Form onSubmit={formik.handleSubmit}>
                 <Input

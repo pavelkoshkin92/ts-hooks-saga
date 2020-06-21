@@ -6,8 +6,8 @@ const Auth = lazy(() => import('../features/auth/Auth'));
 const Routes: FC = () => (
     <Suspense fallback={<div>Loading...</div>}>
         <Switch>
-            <Route exact path="/" component={Auth}/>
-            <Redirect to="/"/>
+            <Route exact path="/" component={Auth} />
+            <Redirect to="/" />
         </Switch>
     </Suspense>
 

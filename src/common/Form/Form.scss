@@ -22,7 +22,9 @@
   background-color: #6c757d;
   border-radius: 5px;
   border: 1px solid #6c757d;
+  transition: all .2s;
   &:hover {
     cursor: pointer;
+    background-color: #8b949d;
   }
 }

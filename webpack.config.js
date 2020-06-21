@@ -67,7 +67,10 @@ module.exports = {
 
     plugins: [
         new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({template: './public/index.html'}),
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+            favicon: './public/favicon.png'
+        }),
         new MiniCssExtractPlugin({
             filename: 'style-[hash].css',
             allChunks: true

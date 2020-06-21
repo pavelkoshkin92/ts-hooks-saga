@@ -9,13 +9,19 @@ import {
 
 import {ActionPayloadRequired} from "../../../../constants/types";
 
+import {signIn} from "../../../../api";
+
 function* loginUser(action:ActionPayloadRequired<typeof AUTH_LOGIN, LoginPayload>) {
     try {
-        const {login, password} = action.payload
+        const {login, password} = action.payload;
+        yield put({type: AUTH_LOGIN_START});
 
+        const user = yield call(signIn, login, password);
+        yield put({type: AUTH_LOGIN_SUCCESS, payload: user});
+        localStorage.setItem('session', JSON.stringify(user));
 
     } catch (e) {
-
+        yield put({type: AUTH_LOGIN_ERROR});
     }
 }
 
