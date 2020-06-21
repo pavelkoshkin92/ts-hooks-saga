@@ -1,12 +1,11 @@
 import {
     AUTH_LOGIN,
-    AUTH_LOGIN_START,
-    AUTH_LOGIN_SUCCESS,
-    AUTH_LOGIN_ERROR,
+    AUTH_LOGOUT,
     LoginPayload
 } from "../constants/types";
 
 import {ActionPayloadRequired} from "../../../../constants/types";
+import {Action} from "redux";
 
 export const loginUser = (login: string, password: string): ActionPayloadRequired<typeof AUTH_LOGIN, LoginPayload> => ({
     type: AUTH_LOGIN,
@@ -14,6 +13,8 @@ export const loginUser = (login: string, password: string): ActionPayloadRequire
         login,
         password
     }
-})
+});
+
+export const logoutUser = (): Action<typeof AUTH_LOGOUT> => ({type: AUTH_LOGOUT});
 
 

@@ -17,3 +17,7 @@ export const signIn = (login: string, password: string): Promise<SignUpApiRespon
         }), 1500)
     })
 }
+
+export const fetchSummary = (): Promise<object> => {
+    return API.get('/summary');
+};

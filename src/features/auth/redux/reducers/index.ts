@@ -1,6 +1,5 @@
 import {
     SessionState,
-    AUTH_LOGIN,
     AUTH_LOGIN_START,
     AUTH_LOGIN_SUCCESS,
     AUTH_LOGIN_ERROR,
@@ -16,7 +15,7 @@ const initialState: SessionState = {
     done: true
 };
 
-export const authReducer = (
+const authReducer = (
     state: SessionState = initialState,
     action: ActionPayloadOptional<string, any>
 ): SessionState => {
@@ -27,4 +26,6 @@ export const authReducer = (
         case AUTH_LOGOUT: return {...state, ...initialState};
         default: return state;
     }
-}
+};
+
+export default authReducer;

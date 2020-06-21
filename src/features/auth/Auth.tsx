@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import { useFormik } from 'formik';
 import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from 'react-router-dom';
 
 import styles from './Auth.scss';
 
@@ -38,7 +39,6 @@ const showError: ShowError = (type, formik, focused) => {
 const Auth: FC = () => {
     const dispatch = useDispatch();
     const { done, isAuthenticated } = useSelector((state: {auth: SessionState}) => state.auth);
-    console.log(done)
 
     const [emailFocused, setEmailFocused] = useState(false);
     const [passwordFocused, setPasswordFocused] = useState(false);
@@ -56,6 +56,7 @@ const Auth: FC = () => {
         }
     });
 
+    if (isAuthenticated) return <Redirect to="/overview" />
 
     return (
         <div className={styles.bg}>

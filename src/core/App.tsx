@@ -12,11 +12,6 @@ const App: React.FC = () => (
     <Provider store={store}>
         <Router>
             <Routes />
-            {/*<div className={styles.app}>*/}
-            {/*    Hey there!*/}
-            {/*    <img src={logo} alt=""/>*/}
-            {/*    <div className={styles.myImg}/>*/}
-            {/*</div>*/}
         </Router>
     </Provider>
 );

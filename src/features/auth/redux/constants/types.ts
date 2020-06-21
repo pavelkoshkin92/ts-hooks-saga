@@ -4,11 +4,6 @@ export const AUTH_LOGIN_SUCCESS = 'AUTH_LOGIN_SUCCESS';
 export const AUTH_LOGIN_ERROR = 'AUTH_LOGIN_ERROR';
 export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 
-export interface SessionCreatePayload {
-    username: string,
-    userId: string
-}
-
 export interface LoginPayload {
     login: string,
     password: string
