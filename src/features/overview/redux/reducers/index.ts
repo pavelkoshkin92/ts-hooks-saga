@@ -30,7 +30,18 @@ const overviewReducer = (
 ): OverviewState => {
     switch (action.type) {
         case OVERVIEW_GET_SUMMARY_START: return {...state, done: false};
-        case OVERVIEW_GET_SUMMARY_SUCCESS: return {...state, done: true, summary: action.payload};
+        case OVERVIEW_GET_SUMMARY_SUCCESS:
+            return {
+                ...state,
+                done: true,
+                summary: {
+                    ...action.payload,
+                    Countries: action.payload.Countries.sort(
+                        (a:{TotalConfirmed: number}, b: {TotalConfirmed: number}) =>
+                            b.TotalConfirmed-a.TotalConfirmed
+                    )
+                }
+            };
         case OVERVIEW_GET_SUMMARY_ERROR: return {...state, done: true};
         case OVERVIEW_CLEAR: return {...initialState};
         default: return state;

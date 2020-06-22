@@ -6,7 +6,7 @@ import { Redirect } from 'react-router-dom';
 import styles from './Auth.scss';
 
 import { ValidateEmailPassword, ValidationErrors, ShowError } from "./types";
-import { SessionState } from "./redux/constants/types";
+import { RootState } from "../../core/root.reducer";
 
 import { loginUser } from "./redux/actions";
 
@@ -38,7 +38,7 @@ const showError: ShowError = (type, formik, focused) => {
 
 const Auth: FC = () => {
     const dispatch = useDispatch();
-    const { done, isAuthenticated } = useSelector((state: {auth: SessionState}) => state.auth);
+    const { done, isAuthenticated } = useSelector((state: RootState) => state.auth);
 
     const [emailFocused, setEmailFocused] = useState(false);
     const [passwordFocused, setPasswordFocused] = useState(false);

@@ -13,8 +13,8 @@ function* getSummary() {
     try {
         yield put({type: OVERVIEW_GET_SUMMARY_START});
 
-        const summary = yield call(fetchSummary);
-        yield put({type: OVERVIEW_GET_SUMMARY_SUCCESS, payload: summary});
+        const response = yield call(fetchSummary);
+        yield put({type: OVERVIEW_GET_SUMMARY_SUCCESS, payload: response.data});
 
     } catch (e) {
         yield put({type: OVERVIEW_GET_SUMMARY_ERROR});

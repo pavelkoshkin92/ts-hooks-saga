@@ -5,9 +5,6 @@ import Routes from "./routes";
 
 import store from "./store";
 
-import styles from './App.scss';
-import logo from '../assets/logo.svg'
-
 const App: React.FC = () => (
     <Provider store={store}>
         <Router>
